@@ -5,11 +5,11 @@
 // 3. 使用连接 id 发送通知请求 - 这是我们告诉跟踪器我们感兴趣的文件的地方
 // 4. 获取announce 响应并提取peers 列表
 const dgram = require('dgram');
-const { url } = require('inspector');
 const  {respType,parseConnResp,parseAnnounceResp} =require("./response") 
 const {buildConnReq,buildAnnounceReq} =require("./util")
 
 module.exports.getPeers = function (torrent, callback) {
+
     //创建udp4套接字
     const socket = dgram.createSocket('udp4');
     //如果解析出的种子不是announce这种格式的return false
