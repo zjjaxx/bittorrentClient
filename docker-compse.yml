@@ -1,0 +1,12 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  app-pm2:
+    image: keymetrics/pm2:latest-alpine
+    command: sh -c "npm install &&  pm2-runtime start pm2.json"
+    ports:
+        - 3001:3000
+    working_dir: /app
+    volumes:
+       - ./:/app
